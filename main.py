@@ -154,15 +154,24 @@ class Bot:
 
     def reply_to_lovemeter(self, message):
         lovemeter = random.randint(0,100)
-        if(lovemeter < 25):
+
+        if (len(message.text_args) == 0):
+            self.send_privmsg(message.channel, 'Who you trynna love? yoself my guy?')
+        elif(lovemeter < 25):
             text = f'Oof not too much love between {message.user} and {message.text_args[0]} only {lovemeter}% StinkyGlitch '
             self.send_privmsg(message.channel, text)
+
         elif(lovemeter >= 25 and lovemeter <= 75):
             text = f'There is {lovemeter}% love beetwen {message.user} and {message.text_args[0]} <3 '
             self.send_privmsg(message.channel, text)
+
         elif(lovemeter > 75):
             text = f'Sheeeesh LOVE IS IN THE AIR! There is {lovemeter}% love beetwen {message.user} and {message.text_args[0]} TwitchUnity '
             self.send_privmsg(message.channel, text)
+
+
+
+
 
 
 
